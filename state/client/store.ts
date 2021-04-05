@@ -35,7 +35,7 @@ const useCardStore = create<State>((set, get) => ({
   reset: () =>
     set(() => {
       deleteGame()
-      return { isSaved: false }
+      return { isSaved: false, deck: defaultDeck, hand: [] }
     }),
   shuffle: () =>
     set((state) => {
