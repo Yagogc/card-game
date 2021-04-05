@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import create from 'zustand'
 
 import { Card, deck as defaultDeck } from '../../data/deck'

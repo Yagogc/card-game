@@ -18,6 +18,7 @@ module.exports = {
   plugins: ['simple-import-sort', 'react-hooks'],
   rules: {
     'simple-import-sort/imports': 'error',
+    '@typescript-eslint/consistent-type-definitions': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
