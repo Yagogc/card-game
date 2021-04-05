@@ -45,27 +45,35 @@ export default function Home() {
           </Column>
           <Column name="Controls">
             <Controls name="Save Game">
-              <div className="flex flex-wrap items-center content-center gap-2">
-                <Button handleClick={save}>Save</Button>
-                <Button handleClick={reset} disabled={!isSaved}>
-                  Reset
-                </Button>
+              <div className="flex flex-wrap items-center justify-center">
+                <div className="m-1">
+                  <Button handleClick={save}>Save</Button>
+                </div>
+                <div className="m-1">
+                  <Button handleClick={reset} disabled={!isSaved}>
+                    Reset
+                  </Button>
+                </div>
               </div>
             </Controls>
             <Controls name="Draw Cards">
-              <div className="flex flex-col items-center content-center gap-2">
-                <InputNumber
-                  drawNumber={drawNumber}
-                  setDrawNumber={setDrawNumber}
-                  deckLenght={deck.length}
-                  disabled={deck.length === 0}
-                />
-                <Button
-                  handleClick={() => draw(drawNumber)}
-                  disabled={deck.length === 0 || drawNumber === 0}
-                >
-                  Draw
-                </Button>
+              <div className="flex flex-col items-center justify-center">
+                <div className="m-1">
+                  <InputNumber
+                    drawNumber={drawNumber}
+                    setDrawNumber={setDrawNumber}
+                    deckLenght={deck.length}
+                    disabled={deck.length === 0}
+                  />
+                </div>
+                <div className="m-1">
+                  <Button
+                    handleClick={() => draw(drawNumber)}
+                    disabled={deck.length === 0 || drawNumber === 0}
+                  >
+                    Draw
+                  </Button>
+                </div>
               </div>
             </Controls>
           </Column>
