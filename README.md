@@ -4,7 +4,7 @@ Live site: [cards.yago.pw](https://cards.yago.pw)
 
 ## Getting Started
 
-### To run the local environment:
+### To run the local environment
 
 Pre-requisites: have installed `yarn` and `nvm`
 
@@ -24,7 +24,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### To run the test locally:
+### To run the test locally
 
 To run the test once:
 
