@@ -14,6 +14,7 @@ const saveGame = ({ deck, hand }: GameState) => {
 
 const restoreGame = (): GameState => {
   const restoredGame = process.browser ? localStorage.getItem(KEY) : null
+
   if (!restoredGame) return null
 
   return JSON.parse(restoredGame)
@@ -23,4 +24,10 @@ const deleteGame = (): void => {
   localStorage.removeItem(KEY)
 }
 
-export { saveGame, restoreGame, deleteGame }
+const isGameSaved = (): boolean => {
+  const restoredGame = process.browser ? localStorage.getItem(KEY) : null
+
+  return restoredGame ? true : false
+}
+
+export { saveGame, restoreGame, deleteGame, isGameSaved }

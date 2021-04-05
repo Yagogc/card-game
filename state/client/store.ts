@@ -2,7 +2,12 @@ import create from 'zustand'
 
 import { Card, deck as defaultDeck } from '../../data/deck'
 import { sortHand } from '../../utils/sort'
-import { deleteGame, restoreGame, saveGame } from '../local/gameState'
+import {
+  deleteGame,
+  isGameSaved,
+  restoreGame,
+  saveGame,
+} from '../local/gameState'
 
 type State = {
   deck: Card[]
@@ -15,10 +20,13 @@ type State = {
   sort: () => void
 }
 
+const restoredDeck = restoreGame()?.deck
+const restoredHand = restoreGame()?.hand
+
 const useCardStore = create<State>((set, get) => ({
-  deck: restoreGame()?.deck || defaultDeck,
-  hand: restoreGame()?.hand || [],
-  isSaved: !!restoreGame(),
+  deck: restoredDeck || defaultDeck,
+  hand: restoredHand || [],
+  isSaved: isGameSaved(),
   draw: (by = 1) =>
     set((state) => {
       const newDeck = state.deck.slice(by)
