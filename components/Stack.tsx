@@ -1,22 +1,24 @@
-import { Card } from '../data/deck'
+import { motion } from 'framer-motion'
 
+import { Card } from '../data/deck'
 interface StackProps {
   stack: Card[]
 }
 
 const Stack = ({ stack }: StackProps) => {
   return (
-    <ul className="flex flex-col space-y-2">
+    <motion.ul layout className="flex flex-col space-y-2">
       {stack.map(({ name, suit, suitEmoji }) => (
-        <li
+        <motion.li
+          layoutId={`${name} ${suit}`}
           key={`${name} ${suit}`}
-          className="w-24 rounded ring-2 ring-inset ring-gray-300 p-1 px-2 flex justify-between pointer-events-none"
+          className="flex justify-between w-24 p-1 px-2 bg-white rounded pointer-events-none ring-2 ring-inset ring-gray-300"
         >
           <span>{name}</span>
           <span>{suitEmoji}</span>
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   )
 }
 
