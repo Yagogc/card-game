@@ -1,5 +1,7 @@
 # CARDS GAME
 
+Live site: [cards.yago.pw](https://cards.yago.pw)
+
 ## Getting Started
 
 ### To run the local environment:
