@@ -12,6 +12,8 @@ import {
 type State = {
   deck: Card[]
   hand: Card[]
+  setDeck: (cards: Card[]) => void
+  setHand: (cards: Card[]) => void
   isSaved: boolean
   draw: (by: number) => void
   save: () => void
@@ -27,6 +29,14 @@ const useCardStore = create<State>((set, get) => ({
   deck: restoredDeck || defaultDeck,
   hand: restoredHand || [],
   isSaved: isGameSaved(),
+  setDeck: (deck) =>
+    set(() => {
+      return { deck }
+    }),
+  setHand: (hand) =>
+    set(() => {
+      return { hand }
+    }),
   draw: (by = 1) =>
     set((state) => {
       const newDeck = state.deck.slice(by)
